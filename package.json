@@ -4,13 +4,15 @@
   "description": "Application to test various details of browser storage policies",
   "main": "index.js",
   "scripts": {
-    "start": "npm run start:parent",
+    "start": "concurrently \"npm:start:parent\" \"npm:start:child\"",
+    "start:child": "node src/server/child.js",
     "start:parent": "node src/server/parent.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Chi-chi <cwang@shoprunner.com>",
   "license": "UNLICENSED",
   "dependencies": {
+    "concurrently": "^4.1.1",
     "express": "^4.17.1"
   }
 }

@@ -5,9 +5,7 @@ const http = require('http');
 
 const parentAppPath = path.join(__dirname, '..', '..', 'assets', 'index.html');
 
-const port = {
-    parent: 8080,
-};
+const port = 8080;
 
 /**
  * Create the express apps
@@ -24,5 +22,5 @@ parentApp.get('*', (req, res) => {
 
 const parentServer = http.createServer(parentApp);
 
-parentServer.listen(port.parent);
-console.log(`parentServer running on http://localhost:${port.parent}...`);
+parentServer.listen(port);
+console.log(`parentServer running on http://localhost:${port}...`);
