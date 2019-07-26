@@ -1,0 +1,3 @@
+zoid.create({
+    tag: 'storage',
+});
