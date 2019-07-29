@@ -16,4 +16,4 @@ assetApp.use(express.static(assetDir));
 
 const assetServer = http.createServer(assetApp);
 assetServer.listen(port);
-console.log(`assetServer running on http://localhost:${port}...`);
+console.log(`assetServer running on http://127.0.0.1:${port}...`);
