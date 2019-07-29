@@ -5,6 +5,7 @@ const http = require('http');
 
 const childAppPath = path.join(__dirname, '..', '..', 'assets', 'child.html');
 const childJSPath = path.join(__dirname, '..', '..', 'assets', 'js', 'child.js');
+const xdomainJSPath = path.join(__dirname, '..', '..', 'assets', 'js', 'crossdomain.js');
 
 const port = 8000;
 
@@ -16,6 +17,13 @@ const childApp = express();
 
 childApp.get('/js/child.js', (req, res) => {
     fs.readFile(childJSPath, { encoding: 'utf-8' }, (err, data) => {
+        if (err) throw err;
+        res.send(data);
+    });
+});
+
+childApp.get('/js/crossdomain.js', (req, res) => {
+    fs.readFile(xdomainJSPath, { encoding: 'utf-8' }, (err, data) => {
         if (err) throw err;
         res.send(data);
     });
